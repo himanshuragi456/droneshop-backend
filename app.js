@@ -38,7 +38,7 @@ app.set('view engine', 'ejs');
 
 // Cors
 app.use(cors({
-  origin: JSON.parse(process.env.origin),
+  origin: JSON.parse(`${process.env.origin}`),
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
