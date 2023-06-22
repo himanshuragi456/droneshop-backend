@@ -38,7 +38,7 @@ app.set('view engine', 'ejs');
 
 // Cors
 app.use(cors({
-  origin: ["https://droneshop-9de3e.web.app", "https://droneshop.web.app/"],
+  origin: process.env.origin,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
