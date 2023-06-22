@@ -38,13 +38,13 @@ app.set('view engine', 'ejs');
 
 // Cors
 app.use(cors({
-  origin: ['https://droneshop-9de3e.web.app', 'https://droneshop.web.app/'],
+  origin: ["https://droneshop-9de3e.web.app", "https://droneshop.web.app/"],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', ['https://droneshop-9de3e.web.app', 'https://droneshop.web.app/']);
+  res.header('Access-Control-Allow-Origin', ["https://droneshop-9de3e.web.app", "https://droneshop.web.app/"]);
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
