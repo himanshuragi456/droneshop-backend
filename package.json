@@ -29,6 +29,7 @@
     "multer-storage-cloudinary": "^4.0.0",
     "path": "^0.12.7",
     "startbootstrap-sb-admin-2": "^4.1.4",
+    "stripe": "^12.10.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {

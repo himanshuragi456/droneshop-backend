@@ -19,6 +19,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const clientProductRoutes = require('./routes/clientProductRoutes');
 const clientCartRoutes = require('./routes/clientCartRoutes');
 const clientTransactionRoutes = require('./routes/clientTransactionRoutes');
+const clientCreatePayment = require('./routes/clientCreatePayment');
 const requireClientAuth = require('./middleware/clientAuthMiddleware');
 const { requireAdminAuth, checkAdmin } = require('./middleware/adminAuthMiddleware');
 
@@ -83,6 +84,7 @@ app.use('/auth/admin', adminAuthRoutes);
 app.use('/api/product', clientProductRoutes);
 app.use('/api/cart', requireClientAuth, clientCartRoutes);
 app.use('/api/transaction', requireClientAuth, clientTransactionRoutes);
+app.use('/api/payment', requireClientAuth, clientCreatePayment);
 
 // 404 Page Not Found Route
 app.get('*', (req, res) => {
