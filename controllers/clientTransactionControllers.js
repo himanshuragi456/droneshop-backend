@@ -12,6 +12,19 @@ const post_transaction = async (req, res) => {
   }
 };
 
+const update_transaction = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Transaction.findByIdAndUpdate(id,
+      req.body,
+    ).then((response) => {
+      res.status(200).send(response);
+    }).catch((err) => res.send(err));
+  } catch (error) {
+    res.status(500).send({ message: 'Internal Server Error', error });
+  }
+};
+
 const delete_transaction = async (req, res) => {
   try {
     const { id } = req.params;
@@ -55,6 +68,7 @@ const get_detail_transaction = async (req, res) => {
 
 module.exports = {
   post_transaction,
+  update_transaction,
   delete_transaction,
   get_transaction,
   get_detail_transaction,
