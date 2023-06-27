@@ -20,7 +20,7 @@ const get_transactions_cod_for_payment = async (req, res) => {
       .sort({ dateAdded: -1 });
 
     // Render
-    res.render('admin/transactions/view_transactions', {
+    res.render('admin/transactions-cod/view_transactions', {
       transactionsData,
       title: 'Transactions',
       userName: res.locals.user.userName,
