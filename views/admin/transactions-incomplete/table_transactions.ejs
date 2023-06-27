@@ -17,7 +17,7 @@
                   </tr>
               </thead>
               <tbody>
-                <% transactionsData.filter((item) => item.status == "COD").map((items, index) => { %>
+                <% transactionsData.filter((item) => item.status == "Waiting for payment").map((items, index) => { %>
                     <tr>
                         <td><%= index + 1 %></td>
                         <td><%= items.fullName %></td>

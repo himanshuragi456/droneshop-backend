@@ -29,7 +29,7 @@ const get_admin_signin = (req, res) => {
   // Protecting routes
   if (req.cookies.jwt) {
     console.log('Protected');
-    res.redirect('/admin/transactions/waiting-payment');
+    res.redirect('/admin/transactions/cod-payment');
   } else {
     res.render('admin/login/login', { alert });
   }
@@ -50,7 +50,7 @@ const post_admin_signin = async (req, res) => {
               // Create jwt token
               const jwtToken = jwt.sign({ id: response.id }, process.env.secretKey, { expiresIn: maxAge }); // With expired date
               res.cookie('jwt', jwtToken, { httpOnly: true, maxAge: maxAge * 1000 });
-              res.redirect('/admin/transactions/waiting-payment');
+              res.redirect('/admin/transactions/cod-payment');
             } else {
               req.flash('alertMessage', 'Wrong Password');
               req.flash('alertStatus', 'danger');

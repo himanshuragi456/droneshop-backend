@@ -9,7 +9,11 @@ const router = Router();
 router.get('/', adminControllers.get_index);
 
 // Transactions endpoint
-router.get('/transactions/waiting-payment', adminControllers.get_transactions_waiting_for_payment);
+router.get('/transactions/cod-payment', adminControllers.get_transactions_cod_for_payment);
+
+router.get('/transactions/online-payment', adminControllers.get_transactions_online_payment);
+router.get('/transactions/incomplete-payment', adminControllers.get_transactions_incomplete_payment);
+router.get('/transactions/all-payment', adminControllers.get_transactions_all_payment);
 
 // Products endpoint
 router.use('/products/*', cloudinaryConfig);

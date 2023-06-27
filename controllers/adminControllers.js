@@ -13,7 +13,7 @@ const get_index = (req, res) => {
 };
 
 // Transactions controller
-const get_transactions_waiting_for_payment = async (req, res) => {
+const get_transactions_cod_for_payment = async (req, res) => {
   try {
     // Find transactions
     const transactionsData = await Transaction.find()
@@ -21,6 +21,69 @@ const get_transactions_waiting_for_payment = async (req, res) => {
 
     // Render
     res.render('admin/transactions/view_transactions', {
+      transactionsData,
+      title: 'Transactions',
+      userName: res.locals.user.userName,
+    });
+  } catch (error) {
+    res.render('admin/error/view_error', {
+      error,
+      title: 'Error',
+      userName: res.locals.user.userName,
+    });
+  }
+};
+
+const get_transactions_online_payment = async (req, res) => {
+  try {
+    // Find transactions
+    const transactionsData = await Transaction.find()
+      .sort({ dateAdded: -1 });
+
+    // Render
+    res.render('admin/transactions-online/view_transactions', {
+      transactionsData,
+      title: 'Transactions',
+      userName: res.locals.user.userName,
+    });
+  } catch (error) {
+    res.render('admin/error/view_error', {
+      error,
+      title: 'Error',
+      userName: res.locals.user.userName,
+    });
+  }
+};
+
+const get_transactions_incomplete_payment = async (req, res) => {
+  try {
+    // Find transactions
+    const transactionsData = await Transaction.find()
+      .sort({ dateAdded: -1 });
+
+    // Render
+    res.render('admin/transactions-incomplete/view_transactions', {
+      transactionsData,
+      title: 'Transactions',
+      userName: res.locals.user.userName,
+    });
+  } catch (error) {
+    res.render('admin/error/view_error', {
+      error,
+      title: 'Error',
+      userName: res.locals.user.userName,
+    });
+  }
+};
+
+const get_transactions_all_payment = async (req, res) => {
+  try {
+    // Find transactions
+    const transactionsData = await Transaction.find()
+      .sort({ dateAdded: -1 });
+
+    // Render
+    res.render('admin/transactions-all/view_transactions', {
       transactionsData,
       title: 'Transactions',
       userName: res.locals.user.userName,
@@ -193,7 +256,10 @@ const put_update_products = async (req, res) => {
 
 module.exports = {
   get_index,
-  get_transactions_waiting_for_payment,
+  get_transactions_cod_for_payment,
+  get_transactions_online_payment,
+  get_transactions_incomplete_payment,
+  get_transactions_all_payment,
   get_all_products,
   get_add_products,
   post_add_products,
