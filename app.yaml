@@ -1,0 +1,27 @@
+runtime: nodejs16
+
+handlers:
+- url: /api/.*
+  script: auto
+  secure: always
+
+- url: /.*
+  static_files: index.html
+  upload: index.html
+  secure: always
+  http_headers:
+    X-Frame-Options: deny
+    X-DNS-Prefetch-Control: off
+    X-XSS-Protection: 1; mode=block
+    X-Permitted-Cross-Domain-Policies: none
+
+env_variables:
+    PORT: '5000'
+    origin: 'http://localhost:3000'
+    secretKey: "s%3Al7ozSdvQ83TtC5RvJ.EibaQoHtaZ0H3QOB1kqR8H2A"
+    dbURI: "mongodb+srv://himanshuragi:SZCwTeB1W6r86cay@cluster0.b2jixv8.mongodb.net/?retryWrites=true&w=majority"
+    CLOUDINARY_NAME: "djxpqemkk"
+    CLOUDINARY_KEY: "538389753928388"
+    CLOUDINARY_SECRET: "P1zXmPgWo-F_3QRfWwV2IAAwRJU"
+    GOOGLE_CLIENT_ID: "789270419623-flc2hsh4blu5ogu7itc5mivbdht4ehn7.apps.googleusercontent.com"
+    clientID: "789270419623-flc2hsh4blu5ogu7itc5mivbdht4ehn7.apps.googleusercontent.com"
